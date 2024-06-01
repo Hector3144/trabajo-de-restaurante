@@ -40,7 +40,7 @@ if (!empty($_POST)) {
                     </button>
                 </div>';
                 } else {
-                    $query_insert = mysqli_query($conexion, "INSERT INTO usuarios (nombre,correo,rol,pass) values ('$nombre', '$correo', '$rol')");
+                    $query_insert = mysqli_query($conexion, "INSERT INTO usuarios (nombre,correo,rol,pass) values ('$nombre', '$correo', '$rol', '$pass')");
                     if ($query_insert) {
                         $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
                     Usuario Registrado
@@ -96,7 +96,7 @@ include "includes/header.php";
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="correo">Correo</label>
-                        <input type="correo" class="form-control" placeholder="Ingrese correo Electrónico" name="correo" id="correo">
+                        <input type="email" class="form-control" placeholder="Ingrese correo Electrónico" name="correo" id="correo">
                     </div>
 
                 </div>
