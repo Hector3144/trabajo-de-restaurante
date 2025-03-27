@@ -20,12 +20,18 @@ if (!empty($_SESSION['active'])) {
             mysqli_close($conexion);
             $resultado = mysqli_num_rows($query);
             if ($resultado > 0) {
-                $dato = mysqli_fetch_array($query);
-                $_SESSION['active'] = true;
-                $_SESSION['idUser'] = $dato['id'];
-                $_SESSION['nombre'] = $dato['nombre'];
-                $_SESSION['rol'] = $dato['rol'];
-                header('Location: src/dashboard.php');
+              $dato = mysqli_fetch_array($query);
+              $_SESSION['active'] = true;
+              $_SESSION['idUser'] = $dato['id'];
+              $_SESSION['nombre'] = $dato['nombre'];
+              $_SESSION['rol'] = $dato['rol'];
+              
+              if ($dato['rol'] == 2) {
+                header('Location: src/platos.php');
+              } else if ($dato['rol'] == 1 || $dato['rol'] == 3) {
+                header('Location: index.php');
+              }
+            
             } else {
                 $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                         Contraseña incorrecta
@@ -34,6 +40,7 @@ if (!empty($_SESSION['active'])) {
                         </button>
                     </div>';
                 session_destroy();
+        
             }
         }
     }
@@ -43,7 +50,7 @@ if (!empty($_SESSION['active'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
 
@@ -59,7 +66,7 @@ if (!empty($_SESSION['active'])) {
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Sistema</b><br>GEFREMAKEHE</a>
+    <a href="#"><b>H&K</b><br>OrderSys</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

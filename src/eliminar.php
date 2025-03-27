@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['rol'] != 1) {
+if (!in_array($_SESSION['rol'], [1, 2, 3])) {
     header('Location: permisos.php');
     exit;
 }

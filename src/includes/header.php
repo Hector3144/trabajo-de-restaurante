@@ -50,7 +50,8 @@ if (empty($_SESSION['active'])) {
             <!-- Brand Logo -->
             <a href="dashboard.php" class="brand-link">
                 <img src="../assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">GEFREMAKEHE</span>
+                <span class="brand-text font-weight-light">H&K
+                OrderSys</span>
             </a>
 
             <!-- Sidebar -->
@@ -70,15 +71,16 @@ if (empty($_SESSION['active'])) {
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
+                        <!--   <li class="nav-item">
                             <a href="dashboard.php" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
                                 </p>
                             </a>
-                        </li>
-                        <li class="nav-item">
+                        </li>-->
+                        
+          <!--    <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-pizza-slice"></i>
                                 <p>
@@ -104,19 +106,30 @@ if (empty($_SESSION['active'])) {
                                 } ?>
                             </ul>
 
-                        </li>
+                        </li> -->
 
-                        <?php if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2) {
-                            echo '<li class="nav-item">
+                        <?php if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2): ?>
+                            <li class="nav-item">
                                 <a href="platos.php" class="nav-link">
                                     <i class="nav-icon fas fa-coffee"></i>
                                     <p>
                                         Platos
                                     </p>
                                 </a>
-                            </li>';
-                        } if ($_SESSION['rol'] == 1) {
-                            echo '<li class="nav-item">
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 3): ?>
+                            <li class="nav-item">
+                                <a href="index.php" class="nav-link">
+                                    <i class="nav-icon fas fa-table"></i>
+                                    <p>
+                                        Mesas
+                                    </p>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                        <!--<?php if ($_SESSION['rol'] == 1): ?>
+                            <li class="nav-item">
                                 <a href="salas.php" class="nav-link">
                                     <i class="nav-icon fas fa-door-open"></i>
                                     <p>
@@ -124,7 +137,8 @@ if (empty($_SESSION['active'])) {
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            
+                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-user-cog"></i>
                                     <p>
@@ -146,8 +160,8 @@ if (empty($_SESSION['active'])) {
                                         </a>
                                     </li>
                                 </ul>
-                            </li>';
-                        } ?>
+                            </li> 
+                        <?php endif; ?> -->
 
 
 
